@@ -1,0 +1,36 @@
+plugins {
+    id 'application'
+}
+
+group 'org.doctordrue.jira.clients'
+version '0.1.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://m2proxy.atlassian.com/repository/public"
+    }
+}
+
+dependencies {
+    implementation 'com.atlassian.jira:jira-rest-java-client-app:5.2.2'
+    implementation 'com.opencsv:opencsv:5.6'
+}
+
+applicationDistribution.from("data") {
+    into "$executableDir/data"
+    include "**/*"
+}
+
+applicationDistribution.from("config") {
+    into "$executableDir/config"
+    include "*.properties"
+}
+
+applicationDistribution.from(".") {
+    include "readme.md"
+}
+
+application {
+    mainClass = 'org.doctordrue.jira.clients.create_subtasks.Main'
+}

@@ -1,0 +1,3 @@
+task,estimate,assignee
+"QA – Write and review Test Plan",4h 1m,"jira_account@email.com"
+"AQA – Implement and adapt tests",3d 1m,"jira_account@email.com"
